@@ -33,7 +33,7 @@ try:
 	while True:
 		for col in colors:
 			setColor(col)
-			time.sleep(0.5)
+			time.sleep(1)
 except KeyboardInterrupt:
 	p_R.stop()
 	p_G.stop()
