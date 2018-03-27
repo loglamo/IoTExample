@@ -10,8 +10,8 @@ for i in pins:
 	GPIO.setup(pins[i], GPIO.OUT)   # Set pins' mode is output
 	GPIO.output(pins[i], GPIO.HIGH) # Set pins to high(+3.3V) to off led
 
-p_R = GPIO.PWM(pins['pin_R'], 10)  # tan so xung
-p_G = GPIO.PWM(pins['pin_G'], 10)
+p_R = GPIO.PWM(pins['pin_R'], 5)  # tan so xung
+p_G = GPIO.PWM(pins['pin_G'], 5)
 
 p_R.start(1)      # Initial duty Cycle = 0(leds on)
 p_G.start(1)
@@ -23,8 +23,8 @@ def setColor(col):   # For example : col = 0x112233
 	R_val = (col & 0x1100) >> 8
 	G_val = (col & 0x0011) >> 0
 	
-	R_val = map(R_val, 0, 255, 0, 255)
-	G_val = map(G_val, 0, 255, 0, 255)
+	R_val = map(R_val, 0, 255, 0, 244)
+	G_val = map(G_val, 0, 255, 0, 244)
 	
 	p_R.ChangeDutyCycle(R_val)     # Change duty cycle
 	p_G.ChangeDutyCycle(G_val)
