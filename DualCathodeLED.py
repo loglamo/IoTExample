@@ -10,11 +10,11 @@ for i in pins:
 	GPIO.setup(pins[i], GPIO.OUT)   # Set pins' mode is output
 	GPIO.output(pins[i], GPIO.HIGH) # Set pins to high(+3.3V) to off led
 
-p_R = GPIO.PWM(pins['pin_R'], 2000)  # set Frequece to 2KHz
-p_G = GPIO.PWM(pins['pin_G'], 2000)
+p_R = GPIO.PWM(pins['pin_R'], 2500)  # set Frequece to 2KHz
+p_G = GPIO.PWM(pins['pin_G'], 2500)
 
-p_R.start(0)      # Initial duty Cycle = 0(leds off)
-p_G.start(0)
+p_R.start(1)      # Initial duty Cycle = 0(leds off)
+p_G.start(1)
 
 def map(x, in_min, in_max, out_min, out_max):
 	return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min
