@@ -18,7 +18,7 @@ client1 = mqtt.Client("client1") #create new instance
 #client2 = mqtt.Client("client2")
 client1.connect(broker_address) #connect to broker
 print("Connecting to Broker 172.17.0.2")
-# đọc dữ liệu nhiệt độ từ file 
+
 #data1 = 'true,2'
 def read_temp_raw():  
     f = open(device_file, 'r')  

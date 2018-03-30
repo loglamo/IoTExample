@@ -25,3 +25,14 @@ Trong đó:
 
 ![message queue](https://i.imgur.com/TK24SPC.png)
 
+# Các file Python
+
+- File DS18B20_example.py: Đọc dữ liệu nhiệt độ từ /sys/bus/w1/devices/ và chuyển số liệu có được sang thang đo độ C.
+
+- File DualCathodeLED.py: Sử dụng module RPi.GPIO của Python để thực hiện thay đổi màu sắc của LED (red, yelow), mở tắt LED.
+
+- File PubDataToHA.py: Sử dụng module Paho-mqtt để thực hiện publish dữ liệu nhiệt độ nhận được tới topic "office/sensor1" tại broker Mosquitto có địa chỉ "172.17.0.2"
+
+- Sensor đã được định nghĩa ở Home Assistant sẽ subcribe tại chính topic "office/sensor1" này, và dữ liệu nhiệt độ sẽ được hiển thị trên giao diện Home Assistant.
+
+
