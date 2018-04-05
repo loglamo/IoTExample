@@ -68,7 +68,7 @@ def swLed(ev=None):
 	 # time.sleep(2)
     for i in pins:
 	  GPIO.output(pins[i], GPIO.HIGH)
-    theNumberOfPeople += 1
+    theNumberOfPeople = theNumberOfPeople + 1
 
 
 def loop():
