@@ -96,7 +96,7 @@ while True:
 		     loop()
 	     except KeyboardInterrupt:  # When 'Ctrl+C' is pressed, the child program destroy() will be  executed.
 		     destroy()
-    print(theNumberOfPeople)
-    client1.publish("office/sensor3", theNumberOfPeople)
+    print(people)
+    client1.publish("office/sensor3", people)
     print("pub data to office/sensor3")
     #time.sleep(5)
