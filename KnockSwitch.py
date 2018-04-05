@@ -13,7 +13,7 @@ client1 = mqtt.Client("client1") #create new instance
 #client2 = mqtt.Client("client2")
 client1.connect(broker_address) #connect to broker
 print("Connecting to Broker 172.17.0.2")
-theNumberOfPeople = 0
+people = 0
 
 
 
@@ -68,7 +68,8 @@ def swLed(ev=None):
 	 # time.sleep(2)
     for i in pins:
 	  GPIO.output(pins[i], GPIO.HIGH)
-    theNumberOfPeople = theNumberOfPeople + 1
+    global people
+    people += 1
 
 
 def loop():
