@@ -4,8 +4,7 @@ import time
 
 colors = [0xFF00, 0x00FF, 0x0FF0, 0xF00F]
 pins = {'pin_R':15, 'pin_G':16}  # pins is a dict
-
-#GPIO.setmode(GPIO.BOARD)       # Numbers GPIOs by physical location
+GPIO.setmode(GPIO.BOARD)       # Numbers GPIOs by physical location
 for i in pins:
 	GPIO.setup(pins[i], GPIO.OUT)   # Set pins' mode is output
 	GPIO.output(pins[i], GPIO.HIGH) # Set pins to high(+3.3V) to off led
