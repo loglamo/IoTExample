@@ -70,6 +70,10 @@ def swLed(ev=None):
 	  GPIO.output(pins[i], GPIO.HIGH)
     global people
     people += 1
+    print(people)
+    client1.publish("office/sensor3", people)
+    print("pub data to office/sensor3")
+
 
 
 def loop():
@@ -96,7 +100,4 @@ while True:
 		     loop()
 	     except KeyboardInterrupt:  # When 'Ctrl+C' is pressed, the child program destroy() will be  executed.
 		     destroy()
-    print(people)
-    client1.publish("office/sensor3", people)
-    print("pub data to office/sensor3")
-    #time.sleep(5)
+    
