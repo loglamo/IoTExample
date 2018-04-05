@@ -51,7 +51,7 @@ def swLed(ev=None):
     print "Having motion !!!!"
     for col in colors:
 	  setColor(col)
-	  time.sleep(5)
+	  time.sleep(1)
     for i in pins:
 	  GPIO.output(pins[i], GPIO.HIGH)
 
