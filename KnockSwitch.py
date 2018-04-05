@@ -12,9 +12,6 @@ for i in pins:
 p_R = GPIO.PWM(pins['pin_R'], 5)  # tan so xung
 p_G = GPIO.PWM(pins['pin_G'], 5)
 
-p_R.start(1)      # Initial duty Cycle = 0(leds on)
-p_G.start(1)
-
 def map(x, in_min, in_max, out_min, out_max):
 	return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min
 
