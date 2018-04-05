@@ -49,9 +49,13 @@ def swLed(ev=None):
 #	Led_status = not Led_status
 #	GPIO.output(LedPin, Led_status)  # switch led status(on-->off; off-->on)
     print "Having motion !!!!"
+    p_R.start(1)      # Initial duty Cycle = 0(leds on)
+    p_G.start(1)
     for col in colors:
 	  setColor(col)
-	  time.sleep(1)
+	  time.sleep(2)
+    for i in pins:
+	  GPIO.output(pins[i], GPIO.HIGH)
 
 
 def loop():
@@ -60,8 +64,6 @@ def loop():
 		pass   # Don't do anything
 
 def destroy():
-	for i in pins:
-	  GPIO.output(pins[i], GPIO.HIGH)
     GPIO.cleanup()                     # Release resource
 
 if __name__ == '__main__':     # Program start from here
