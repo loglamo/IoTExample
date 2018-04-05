@@ -58,8 +58,8 @@ def swLed(ev=None):
 
 def loop():
 	GPIO.add_event_detect(KnockPin, GPIO.FALLING, callback=swLed, bouncetime=200) # wait for falling
-	while True:
-		pass   # Don't do anything
+	#while True:
+	#	pass   # Don't do anything
 
 def destroy():
 	#GPIO.output(LedPin, GPIO.LOW)     # led off
