@@ -52,18 +52,17 @@ def swLed(ev=None):
     for col in colors:
 	  setColor(col)
 	  time.sleep(1)
-    for i in pins:
-	  GPIO.output(pins[i], GPIO.HIGH)
 
 
 def loop():
 	GPIO.add_event_detect(KnockPin, GPIO.FALLING, callback=swLed, bouncetime=200) # wait for falling
-	#while True:
-	#	pass   # Don't do anything
+	while True:
+		pass   # Don't do anything
 
 def destroy():
-	#GPIO.output(LedPin, GPIO.LOW)     # led off
-	GPIO.cleanup()                     # Release resource
+	for i in pins:
+	  GPIO.output(pins[i], GPIO.HIGH)
+    GPIO.cleanup()                     # Release resource
 
 if __name__ == '__main__':     # Program start from here
 	setup()
