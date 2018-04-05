@@ -1,6 +1,21 @@
 #!/usr/bin/env python
 import RPi.GPIO as GPIO
 import time
+import paho.mqtt.client as mqtt #import the client1
+import json
+import os  
+import glob  
+import time
+import paho.mqtt.client as mqtt #import the client1
+import json
+broker_address="172.17.0.2"
+client1 = mqtt.Client("client1") #create new instance
+#client2 = mqtt.Client("client2")
+client1.connect(broker_address) #connect to broker
+print("Connecting to Broker 172.17.0.2")
+theNumberOfPeople = 0
+
+
 
 colors = [0xFF00, 0x00FF, 0x0FF0, 0xF00F]
 pins = {'pin_R':15, 'pin_G':16}  # pins is a dict
@@ -53,6 +68,7 @@ def swLed(ev=None):
 	 # time.sleep(2)
     for i in pins:
 	  GPIO.output(pins[i], GPIO.HIGH)
+    theNumberOfPeople += 1
 
 
 def loop():
@@ -63,9 +79,23 @@ def loop():
 def destroy():
     GPIO.cleanup()                     # Release resource
 
-if __name__ == '__main__':     # Program start from here
-	setup()
-	try:
-		loop()
-	except KeyboardInterrupt:  # When 'Ctrl+C' is pressed, the child program destroy() will be  executed.
-		destroy()
+#if __name__ == '__main__':     # Program start from here
+#	setup()
+#	try:
+#		loop()
+#	except KeyboardInterrupt:  # When 'Ctrl+C' is pressed, the child program destroy() will be  executed.
+#		destroy()
+
+while True:  
+    #print(theNumberOfPeople)      
+   # time.sleep(1)
+    if __name__ == '__main__':     # Program start from here
+	     setup()
+	     try:
+		     loop()
+	     except KeyboardInterrupt:  # When 'Ctrl+C' is pressed, the child program destroy() will be  executed.
+		     destroy()
+    print(theNumberOfPeople)
+    client1.publish("office/sensor3", theNumberOfPeople)
+    print("pub data to office/sensor3")
+    #time.sleep(5)
